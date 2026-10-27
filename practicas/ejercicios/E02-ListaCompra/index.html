@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>E02 · Lista de la compra</title>
+    <link rel="stylesheet" href="estilos.css" />
+    <script type="module" src="js/main.js"></script>
+  </head>
+  <body>
+    <h1>Lista de la compra</h1>
+
+    <form id="nuevo">
+      <label for="nombre">Producto</label>
+      <input id="nombre" name="nombre" autocomplete="off" />
+      <label for="cantidad">Cantidad</label>
+      <input id="cantidad" name="cantidad" type="number" min="1" max="99" value="1" />
+      <button>Añadir</button>
+    </form>
+
+    <p class="ayuda">Doble clic en un nombre para editarlo · Intro guarda · Escape cancela</p>
+
+    <ul id="lista"></ul>
+    <p id="resumen" role="status"></p>
+
+    <template id="plantilla-producto">
+      <li class="producto">
+        <input type="checkbox" class="comprado" />
+        <span class="nombre"></span>
+        <span class="cantidad"></span>
+        <button type="button" data-accion="menos">−</button>
+        <button type="button" data-accion="mas">+</button>
+        <button type="button" data-accion="borrar">🗑️</button>
+      </li>
+    </template>
+  </body>
+</html>

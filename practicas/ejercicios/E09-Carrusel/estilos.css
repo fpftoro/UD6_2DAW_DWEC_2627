@@ -1,0 +1,98 @@
+body {
+  font-family: system-ui, sans-serif;
+  max-width: 720px;
+  margin: 1rem auto;
+  padding: 0 1rem;
+}
+
+.diapositivas {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.diapositivas li {
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background: #f8f9fa;
+}
+
+.imagen {
+  font-size: 4rem;
+  text-align: center;
+  border-radius: 8px;
+  margin: 0;
+}
+
+.tono-1 {
+  background: #ffe3e3;
+}
+.tono-2 {
+  background: #d0ebff;
+}
+.tono-3 {
+  background: #d3f9d8;
+}
+.tono-4 {
+  background: #e5dbff;
+}
+.tono-5 {
+  background: #fff3bf;
+}
+
+/* Solo con JavaScript: el componente añade .con-carrusel */
+.con-carrusel .diapositivas {
+  touch-action: pan-y; /* el dedo puede desplazar la página en vertical; el horizontal es para deslizar */
+  user-select: none;
+}
+
+.con-carrusel .diapositivas li {
+  margin-bottom: 0;
+  min-height: 220px;
+}
+
+.con-carrusel .imagen {
+  font-size: 6rem;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.controles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.indicadores {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.indicadores button {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  border: 2px solid #1c7ed6;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+.indicadores button[aria-current='true'] {
+  background: #1c7ed6;
+}
+
+.estado-carrusel {
+  text-align: center;
+  color: #868e96;
+  font-size: 0.9rem;
+}
+
+#registro {
+  font-family: Consolas, monospace;
+}

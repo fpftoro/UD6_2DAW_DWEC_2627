@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Carrusel antiguo</title>
+    <!-- Versión heredada del carrusel. No se usa: está aquí para analizarla (README, «Eventos en el HTML»). -->
+    <script>
+      var actual = 0;
+      var temporizador;
+
+      function mostrar(n) {
+        var diapositivas = document.getElementsByTagName('li');
+        actual = (n + diapositivas.length) % diapositivas.length;
+        for (var i = 0; i < diapositivas.length; i++) {
+          diapositivas[i].style.display = i == actual ? 'block' : 'none';
+        }
+      }
+      function siguiente() {
+        mostrar(actual + 1);
+      }
+      function anterior() {
+        mostrar(actual - 1);
+      }
+      function parar() {
+        clearInterval(temporizador);
+      }
+      function seguir() {
+        temporizador = setInterval('siguiente()', 3000);
+      }
+      function iniciar() {
+        mostrar(0);
+        seguir();
+      }
+    </script>
+  </head>
+  <body onload="iniciar()">
+    <div onmouseover="parar()" onmouseout="seguir()">
+      <ul>
+        <li><h2>Granada</h2></li>
+        <li><h2>Cádiz</h2></li>
+        <li><h2>Jaén</h2></li>
+      </ul>
+      <a
+        href="#"
+        onclick="
+          anterior();
+          return false;
+        "
+        >« Anterior</a
+      >
+      <a
+        href="#"
+        onclick="
+          siguiente();
+          return false;
+        "
+        >Siguiente »</a
+      >
+    </div>
+  </body>
+</html>

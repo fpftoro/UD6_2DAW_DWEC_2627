@@ -1,0 +1,7 @@
+# Prettier solo formatea el código: la documentación en Markdown se escribe a mano
+*.md
+# Documentación generada con npm run docs
+docs/
+# Resultados de Playwright
+playwright-report/
+test-results/

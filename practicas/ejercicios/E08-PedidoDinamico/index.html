@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>E08 · Pedido de material</title>
+    <link rel="stylesheet" href="estilos.css" />
+    <script type="module" src="js/main.js"></script>
+  </head>
+  <body>
+    <h1>Pedido de material escolar</h1>
+
+    <form id="pedido" novalidate>
+      <fieldset>
+        <legend>Productos (hasta 10 líneas)</legend>
+        <div id="lineas"></div>
+        <button type="button" id="anadir-linea">Añadir otra línea</button>
+      </fieldset>
+
+      <fieldset>
+        <legend>Entrega</legend>
+        <label><input type="radio" name="entrega" value="tienda" checked /> Recoger en la tienda</label>
+        <label><input type="radio" name="entrega" value="domicilio" /> Envío a domicilio (3,95 €; gratis desde 30 €)</label>
+      </fieldset>
+
+      <fieldset id="direccion" hidden disabled>
+        <legend>Dirección de envío</legend>
+        <label for="calle">Calle y número</label>
+        <input id="calle" name="calle" required minlength="5" aria-describedby="calle-error" />
+        <p class="error" id="calle-error"></p>
+        <label for="cp">Código postal</label>
+        <input id="cp" name="cp" required inputmode="numeric" pattern="(0[1-9]|[1-4]\d|5[0-2])\d{3}" aria-describedby="cp-error" />
+        <p class="error" id="cp-error"></p>
+      </fieldset>
+
+      <p class="totales">
+        Envío: <output id="envio">0,00 €</output> · Total: <output id="total">0,00 €</output>
+      </p>
+
+      <button id="enviar">Hacer el pedido</button>
+      <button type="reset">Empezar de nuevo</button>
+    </form>
+
+    <p id="estado" role="status"></p>
+    <pre id="resumen"></pre>
+
+    <template id="plantilla-linea">
+      <div class="linea">
+        <label>
+          Producto
+          <select name="producto" required>
+            <option value="">Elige un producto</option>
+            <option value="cuaderno" data-precio="2.5">Cuaderno A4 · 2,50 €</option>
+            <option value="boligrafos" data-precio="3.2">Bolígrafos (4) · 3,20 €</option>
+            <option value="calculadora" data-precio="14.9">Calculadora científica · 14,90 €</option>
+            <option value="mochila" data-precio="24.95">Mochila · 24,95 €</option>
+            <option value="regla" data-precio="1.1">Regla de 30 cm · 1,10 €</option>
+          </select>
+        </label>
+        <label>
+          Cantidad
+          <input name="cantidad" type="number" min="1" max="99" value="1" required />
+        </label>
+        <output class="subtotal">0,00 €</output>
+        <button type="button" class="quitar">✕</button>
+        <p class="error"></p>
+      </div>
+    </template>
+  </body>
+</html>

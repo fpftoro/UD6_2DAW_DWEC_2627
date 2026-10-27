@@ -1,0 +1,156 @@
+body {
+  font-family: system-ui, sans-serif;
+  max-width: 620px;
+  margin: 1rem auto;
+  padding: 0 1rem;
+}
+
+#progreso {
+  display: flex;
+  gap: 1rem;
+  padding: 0;
+  list-style-position: inside;
+  color: #868e96;
+}
+
+#progreso [aria-current='step'] {
+  color: #1c7ed6;
+  font-weight: 700;
+}
+
+.paso {
+  border: 1px solid #dee2e6;
+  border-radius: 10px;
+  padding: 0.5rem 1rem 1rem;
+}
+
+.titulo-paso {
+  font-size: 1.25rem;
+  margin: 0.25rem 0;
+}
+
+.campo {
+  margin-bottom: 0.6rem;
+  border: none;
+  padding: 0;
+}
+
+.campo > label:not(:has(input)) {
+  display: block;
+  font-weight: 600;
+}
+
+input:not([type='checkbox'], [type='radio']),
+select {
+  width: 100%;
+  padding: 0.4rem;
+  font: inherit;
+  border: 2px solid #adb5bd;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+[aria-invalid='true'] {
+  border-color: #c92a2a !important;
+  outline-color: #c92a2a;
+}
+
+.error {
+  margin: 0.2rem 0 0;
+  min-height: 1.1em;
+  font-size: 0.9rem;
+  color: #c92a2a;
+}
+
+.ayuda {
+  margin: 0.2rem 0 0;
+  font-size: 0.85rem;
+  color: #868e96;
+}
+
+#provincia {
+  display: block;
+  color: #2b8a3e;
+}
+
+#requisitos-clave {
+  font-size: 0.85rem;
+  color: #868e96;
+}
+
+#requisitos-clave li::before {
+  content: '○ ';
+}
+
+#requisitos-clave li.cumple {
+  color: #2b8a3e;
+}
+
+#requisitos-clave li.cumple::before {
+  content: '✓ ';
+}
+
+#fuerza {
+  width: 100%;
+}
+
+.contacto {
+  border-top: 1px dashed #dee2e6;
+  padding-top: 0.5rem;
+}
+
+#resumen {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.25rem 1rem;
+}
+
+#resumen dt {
+  font-weight: 600;
+}
+
+#resumen dd {
+  margin: 0;
+}
+
+#resumen dd button {
+  font-size: 0.8rem;
+}
+
+.total {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.navegacion {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.navegacion #siguiente {
+  margin-left: auto;
+}
+
+form[aria-busy='true'] {
+  opacity: 0.6;
+}
+
+#resumen-errores {
+  border: 2px solid #c92a2a;
+  border-radius: 8px;
+  padding: 0 1rem;
+  margin-bottom: 1rem;
+  background: #fff5f5;
+}
+
+#resumen-errores a {
+  color: #c92a2a;
+}
+
+#confirmacion {
+  border: 2px solid #2f9e44;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  background: #ebfbee;
+}

@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Inscripción en los cursos de verano</title>
+    <link rel="stylesheet" href="estilos.css" />
+    <script type="module" src="js/main.js"></script>
+  </head>
+  <body>
+    <h1>Cursos de verano · Inscripción</h1>
+
+    <ol id="progreso">
+      <li>Datos personales</li>
+      <li>Curso</li>
+      <li>Cuenta</li>
+      <li>Resumen</li>
+    </ol>
+
+    <div id="resumen-errores" tabindex="-1" hidden>
+      <h2>Revisa estos campos</h2>
+      <ul></ul>
+    </div>
+
+    <form id="inscripcion" novalidate>
+      <!-- Paso 1 -->
+      <fieldset class="paso" data-paso="1">
+        <legend><h2 class="titulo-paso" tabindex="-1">1. Datos personales</h2></legend>
+
+        <div class="campo">
+          <label for="nombre">Nombre</label>
+          <input
+            id="nombre"
+            name="nombre"
+            required
+            minlength="2"
+            autocomplete="given-name"
+            aria-describedby="nombre-error"
+          />
+          <p class="error" id="nombre-error"></p>
+        </div>
+        <div class="campo">
+          <label for="apellidos">Apellidos</label>
+          <input
+            id="apellidos"
+            name="apellidos"
+            required
+            minlength="2"
+            autocomplete="family-name"
+            aria-describedby="apellidos-error"
+          />
+          <p class="error" id="apellidos-error"></p>
+        </div>
+        <div class="campo">
+          <label for="documento">DNI o NIE</label>
+          <input
+            id="documento"
+            name="documento"
+            required
+            data-validar="documento"
+            autocomplete="off"
+            aria-describedby="documento-error"
+          />
+          <p class="error" id="documento-error"></p>
+        </div>
+        <div class="campo">
+          <label for="nacimiento">Fecha de nacimiento</label>
+          <input
+            id="nacimiento"
+            name="nacimiento"
+            type="date"
+            required
+            data-validar="edad"
+            aria-describedby="nacimiento-error"
+          />
+          <p class="error" id="nacimiento-error"></p>
+        </div>
+        <div class="campo">
+          <label for="correo">Correo electrónico</label>
+          <input
+            id="correo"
+            name="correo"
+            type="email"
+            required
+            data-validar="correo"
+            autocomplete="email"
+            aria-describedby="correo-error"
+          />
+          <p class="error" id="correo-error"></p>
+        </div>
+        <div class="campo">
+          <label for="telefono">Teléfono</label>
+          <input
+            id="telefono"
+            name="telefono"
+            type="tel"
+            required
+            data-validar="telefono"
+            autocomplete="tel"
+            aria-describedby="telefono-error"
+          />
+          <p class="error" id="telefono-error"></p>
+        </div>
+      </fieldset>
+
+      <!-- Paso 2 -->
+      <fieldset class="paso" data-paso="2" hidden>
+        <legend><h2 class="titulo-paso" tabindex="-1">2. Curso</h2></legend>
+
+        <fieldset class="campo" id="campo-curso" aria-describedby="curso-error">
+          <legend>Curso</legend>
+          <label
+            ><input type="radio" name="curso" value="robotica" data-precio="180" required />
+            Robótica · 180 €</label
+          >
+          <label
+            ><input type="radio" name="curso" value="fotografia" data-precio="150" /> Fotografía ·
+            150 €</label
+          >
+          <label
+            ><input type="radio" name="curso" value="programacion-web" data-precio="210" />
+            Programación web · 210 €</label
+          >
+          <p class="error" id="curso-error"></p>
+        </fieldset>
+
+        <div class="campo">
+          <label for="turno">Turno</label>
+          <select id="turno" name="turno" required aria-describedby="turno-error">
+            <option value="">Elige un turno</option>
+            <option value="manana">Mañana</option>
+            <option value="tarde">Tarde</option>
+          </select>
+          <p class="error" id="turno-error"></p>
+        </div>
+
+        <div class="campo">
+          <label for="cp">Código postal</label>
+          <input
+            id="cp"
+            name="cp"
+            required
+            inputmode="numeric"
+            data-validar="codigoPostal"
+            autocomplete="postal-code"
+            aria-describedby="cp-error provincia"
+          />
+          <output id="provincia" for="cp"></output>
+          <p class="error" id="cp-error"></p>
+        </div>
+
+        <div class="campo">
+          <label
+            ><input type="checkbox" id="alojamiento" name="alojamiento" /> Necesito alojamiento (25
+            € por noche)</label
+          >
+        </div>
+        <fieldset class="campo" id="bloque-alojamiento" hidden disabled>
+          <label for="noches">Noches</label>
+          <input
+            id="noches"
+            name="noches"
+            type="number"
+            min="1"
+            max="14"
+            value="1"
+            required
+            aria-describedby="noches-error"
+          />
+          <p class="error" id="noches-error"></p>
+        </fieldset>
+
+        <fieldset id="contactos">
+          <legend>Contactos de emergencia (uno o dos)</legend>
+          <button type="button" id="anadir-contacto">Añadir otro contacto</button>
+        </fieldset>
+      </fieldset>
+
+      <!-- Paso 3 -->
+      <fieldset class="paso" data-paso="3" hidden>
+        <legend><h2 class="titulo-paso" tabindex="-1">3. Cuenta</h2></legend>
+
+        <div class="campo">
+          <label for="usuario">Nombre de usuario</label>
+          <input
+            id="usuario"
+            name="usuario"
+            required
+            data-validar="usuario"
+            autocomplete="username"
+            aria-describedby="usuario-ayuda usuario-error"
+          />
+          <p class="ayuda" id="usuario-ayuda">
+            De 3 a 16 caracteres: minúsculas, cifras o _, empezando por una letra.
+          </p>
+          <p class="error" id="usuario-error"></p>
+        </div>
+        <div class="campo">
+          <label for="clave">Contraseña</label>
+          <input
+            id="clave"
+            name="clave"
+            type="password"
+            required
+            data-validar="clave"
+            autocomplete="new-password"
+            aria-describedby="requisitos-clave clave-error"
+          />
+          <meter
+            id="fuerza"
+            min="0"
+            max="4"
+            low="2"
+            high="3"
+            optimum="4"
+            value="0"
+            aria-label="Fuerza de la contraseña"
+          ></meter>
+          <ul id="requisitos-clave">
+            <li data-regla="longitud">8 caracteres o más</li>
+            <li data-regla="minuscula">Una minúscula</li>
+            <li data-regla="mayuscula">Una mayúscula</li>
+            <li data-regla="cifra">Una cifra</li>
+          </ul>
+          <p class="error" id="clave-error"></p>
+        </div>
+        <div class="campo">
+          <label for="repetir">Repite la contraseña</label>
+          <input
+            id="repetir"
+            name="repetir"
+            type="password"
+            required
+            autocomplete="new-password"
+            aria-describedby="repetir-error"
+          />
+          <p class="error" id="repetir-error"></p>
+        </div>
+        <div class="campo">
+          <label
+            ><input
+              type="checkbox"
+              id="condiciones"
+              name="condiciones"
+              required
+              aria-describedby="condiciones-error"
+            />
+            Acepto las condiciones de la inscripción</label
+          >
+          <p class="error" id="condiciones-error"></p>
+        </div>
+      </fieldset>
+
+      <!-- Paso 4 -->
+      <section class="paso" data-paso="4" hidden aria-labelledby="titulo-resumen">
+        <h2 id="titulo-resumen" class="titulo-paso" tabindex="-1">4. Resumen</h2>
+        <dl id="resumen"></dl>
+        <p class="total">Total: <output id="total"></output></p>
+      </section>
+
+      <div class="navegacion">
+        <button type="button" id="anterior">Anterior</button>
+        <button id="siguiente">Siguiente</button>
+      </div>
+      <p id="estado" role="status"></p>
+    </form>
+
+    <section id="confirmacion" tabindex="-1" hidden>
+      <h2>¡Inscripción confirmada!</h2>
+      <p id="mensaje-confirmacion"></p>
+    </section>
+
+    <template id="plantilla-contacto">
+      <div class="contacto">
+        <div class="campo">
+          <label>Nombre del contacto</label>
+          <input name="contacto-nombre" required minlength="2" />
+          <p class="error"></p>
+        </div>
+        <div class="campo">
+          <label>Teléfono del contacto</label>
+          <input name="contacto-telefono" type="tel" required data-validar="telefono" />
+          <p class="error"></p>
+        </div>
+        <button type="button" class="quitar-contacto">Quitar este contacto</button>
+      </div>
+    </template>
+  </body>
+</html>

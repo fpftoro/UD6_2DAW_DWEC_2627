@@ -1,0 +1,63 @@
+body {
+  font-family: system-ui, sans-serif;
+  max-width: 520px;
+  margin: 1rem auto;
+  padding: 0 1rem;
+}
+
+.campo {
+  margin-bottom: 0.75rem;
+}
+
+.campo > label {
+  display: block;
+  font-weight: 600;
+}
+
+input:not([type='checkbox']) {
+  width: 100%;
+  padding: 0.4rem;
+  font: inherit;
+  border: 2px solid #adb5bd;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+[aria-invalid='true'] {
+  border-color: #c92a2a !important;
+  background: #fff5f5;
+}
+
+[aria-invalid='false'] {
+  border-color: #2f9e44 !important;
+}
+
+.ayuda {
+  margin: 0.2rem 0 0;
+  font-size: 0.85rem;
+  color: #868e96;
+}
+
+.error {
+  margin: 0.2rem 0 0;
+  min-height: 1.2em; /* reserva el hueco: el formulario no «salta» */
+  font-size: 0.9rem;
+  color: #c92a2a;
+}
+
+#resumen-errores {
+  border: 2px solid #c92a2a;
+  border-radius: 8px;
+  padding: 0 1rem;
+  margin-bottom: 1rem;
+  background: #fff5f5;
+}
+
+#resumen-errores a {
+  color: #c92a2a;
+}
+
+#resultado {
+  font-weight: 700;
+  color: #2b8a3e;
+}

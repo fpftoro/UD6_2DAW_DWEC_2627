@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>E05 · Arrastrar y soltar</title>
+    <link rel="stylesheet" href="estilos.css" />
+    <script type="module" src="js/main.js"></script>
+  </head>
+  <body>
+    <h1>Arrastrar y soltar</h1>
+
+    <section>
+      <h2>1. Zona de imágenes</h2>
+      <div id="zona">Suelta aquí tus imágenes (como mucho 2 MB cada una)</div>
+      <label for="selector">… o elígelas:</label>
+      <input type="file" id="selector" multiple accept="image/*" />
+      <p id="estado-ficheros" role="status"></p>
+      <ul id="ficheros"></ul>
+    </section>
+
+    <section>
+      <h2>2. Tablero de notas</h2>
+      <p class="ayuda">Arrastra las notas con el ratón o el dedo. Con el teclado: Tabulador para elegir una nota y flechas para moverla (con Mayúsculas, más deprisa).</p>
+      <div id="tablero">
+        <div class="nota" tabindex="0" data-x="20" data-y="20">Comprar pan</div>
+        <div class="nota" tabindex="0" data-x="200" data-y="60">Llamar a Lucía</div>
+        <div class="nota" tabindex="0" data-x="80" data-y="160">Entregar la práctica</div>
+      </div>
+      <p id="posicion" role="status"></p>
+    </section>
+  </body>
+</html>

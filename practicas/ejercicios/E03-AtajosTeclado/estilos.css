@@ -1,0 +1,84 @@
+body {
+  font-family: system-ui, sans-serif;
+  max-width: 720px;
+  margin: 1rem auto;
+  padding: 0 1rem;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.foto {
+  height: 260px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  font-size: 7rem;
+}
+
+.foto.tono-1 { background: #ffe3e3; }
+.foto.tono-2 { background: #fff3bf; }
+.foto.tono-3 { background: #d3f9d8; }
+.foto.tono-4 { background: #d0ebff; }
+.foto.tono-5 { background: #e5dbff; }
+.foto.tono-6 { background: #ffdeeb; }
+
+figcaption {
+  display: flex;
+  gap: 1rem;
+  padding: 0.5rem 0;
+}
+
+#posicion {
+  color: #868e96;
+}
+
+#favorita {
+  color: #e67700;
+  font-weight: 700;
+}
+
+#miniaturas {
+  display: flex;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+}
+
+#miniaturas button {
+  font-size: 1.5rem;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background: #f1f3f5;
+  cursor: pointer;
+}
+
+#miniaturas button[aria-current='true'] {
+  border-color: #1c7ed6;
+}
+
+#miniaturas button.es-favorita::after {
+  content: '★';
+  font-size: 0.8rem;
+  color: #e67700;
+}
+
+textarea {
+  display: block;
+  width: 100%;
+  font: inherit;
+}
+
+kbd {
+  border: 1px solid #adb5bd;
+  border-radius: 4px;
+  padding: 0 0.3rem;
+  background: #f8f9fa;
+}
+
+dialog td {
+  padding: 0.25rem 0.75rem 0.25rem 0;
+}

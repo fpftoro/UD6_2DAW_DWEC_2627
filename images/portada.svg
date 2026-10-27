@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="1200" height="400" role="img" aria-labelledby="t d">
+  <title id="t">UD6 · Interacción con el usuario: eventos y formularios</title>
+  <desc id="d">Portada de la unidad 6 del módulo Desarrollo Web en Entorno Cliente: un evento que baja por elementos anidados en la fase de captura y sube en la de burbuja, junto a un campo de formulario validado con una expresión regular.</desc>
+  <defs>
+    <linearGradient id="fondo" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1b1f3b"/>
+      <stop offset="1" stop-color="#2d1b4e"/>
+    </linearGradient>
+    <linearGradient id="acento" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f7df1e"/>
+      <stop offset="1" stop-color="#ffb347"/>
+    </linearGradient>
+    <marker id="punta-bajada" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#7fd6ff"/>
+    </marker>
+    <marker id="punta-subida" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#ff7edb"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="400" fill="url(#fondo)"/>
+  <!-- Retícula decorativa -->
+  <g stroke="#ffffff" stroke-opacity="0.05">
+    <path d="M0 50H1200M0 100H1200M0 150H1200M0 200H1200M0 250H1200M0 300H1200M0 350H1200"/>
+    <path d="M100 0V400M200 0V400M300 0V400M400 0V400M500 0V400M600 0V400M700 0V400M800 0V400M900 0V400M1000 0V400M1100 0V400"/>
+  </g>
+
+  <!-- Texto -->
+  <g font-family="'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+    <text x="60" y="80" fill="#c9c3e6" font-size="22" letter-spacing="3">DESARROLLO WEB EN ENTORNO CLIENTE · 2DAW</text>
+    <rect x="60" y="100" width="120" height="6" rx="3" fill="url(#acento)"/>
+    <text x="60" y="185" fill="#ffffff" font-size="64" font-weight="700">UD6</text>
+    <text x="60" y="240" fill="#ffffff" font-size="34" font-weight="600">Interacción con el usuario:</text>
+    <text x="60" y="282" fill="#ffffff" font-size="34" font-weight="600">eventos y formularios</text>
+    <text x="60" y="340" fill="#f7df1e" font-size="22" font-weight="600">RA5 · Aplicaciones web interactivas</text>
+  </g>
+
+  <!-- Elementos anidados: captura y burbuja -->
+  <g font-family="Consolas, 'Courier New', monospace" font-size="15">
+    <rect x="700" y="70" width="270" height="270" rx="14" fill="#7fd6ff" fill-opacity="0.06" stroke="#7fd6ff" stroke-opacity="0.7"/>
+    <text x="716" y="94" fill="#7fd6ff">form</text>
+    <rect x="730" y="110" width="210" height="200" rx="12" fill="#7fd6ff" fill-opacity="0.08" stroke="#7fd6ff" stroke-opacity="0.8"/>
+    <text x="746" y="134" fill="#7fd6ff">fieldset</text>
+    <rect x="760" y="230" width="150" height="50" rx="10" fill="#f7df1e" fill-opacity="0.15" stroke="#f7df1e"/>
+    <text x="835" y="261" fill="#f7df1e" font-weight="700" text-anchor="middle">button</text>
+    <!-- Captura (baja) -->
+    <path d="M830 40 V222" stroke="#7fd6ff" stroke-width="3" fill="none" marker-end="url(#punta-bajada)"/>
+    <text x="838" y="178" fill="#7fd6ff" font-size="13" transform="rotate(90 838 178)">captura</text>
+    <!-- Burbuja (sube) -->
+    <path d="M890 222 V40" stroke="#ff7edb" stroke-width="3" fill="none" marker-end="url(#punta-subida)"/>
+    <text x="898" y="150" fill="#ff7edb" font-size="13" transform="rotate(90 898 150)">burbuja</text>
+  </g>
+
+  <!-- Campo validado -->
+  <g font-family="Consolas, 'Courier New', monospace">
+    <text x="1000" y="150" fill="#c9c3e6" font-size="15">DNI</text>
+    <rect x="1000" y="160" width="160" height="40" rx="8" fill="#28c840" fill-opacity="0.12" stroke="#28c840" stroke-width="2"/>
+    <text x="1012" y="186" fill="#ffffff" font-size="17">12345678Z</text>
+    <path d="M1132 172 l7 9 l13 -17" stroke="#28c840" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="1000" y="232" fill="#f7df1e" font-size="14">/^\d{8}[A-Z]$/</text>
+    <text x="1000" y="262" fill="#c9c3e6" font-size="14">input · blur · submit</text>
+  </g>
+</svg>

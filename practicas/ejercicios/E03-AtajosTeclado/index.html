@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>E03 · Visor con atajos de teclado</title>
+    <link rel="stylesheet" href="estilos.css" />
+    <script type="module" src="js/main.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Visor de fotos</h1>
+      <button type="button" id="abrir-ayuda" aria-keyshortcuts="?">Atajos (?)</button>
+    </header>
+
+    <main>
+      <figure id="visor">
+        <div id="foto" class="foto" role="img" aria-labelledby="titulo"></div>
+        <figcaption>
+          <span id="titulo" aria-live="polite"></span>
+          <span id="posicion"></span>
+          <span id="favorita" hidden>★ Favorita</span>
+        </figcaption>
+      </figure>
+
+      <ol id="miniaturas"></ol>
+
+      <label for="nota">Nota sobre esta foto</label>
+      <textarea id="nota" rows="2"></textarea>
+
+      <p id="ultimo">Último atajo: ninguno</p>
+      <p id="mensaje" role="status"></p>
+    </main>
+
+    <dialog id="ayuda" aria-labelledby="titulo-ayuda">
+      <h2 id="titulo-ayuda">Atajos de teclado</h2>
+      <table>
+        <tbody>
+          <tr><td><kbd>→</kbd> / <kbd>←</kbd></td><td>Foto siguiente / anterior</td></tr>
+          <tr><td><kbd>Inicio</kbd> / <kbd>Fin</kbd></td><td>Primera / última foto</td></tr>
+          <tr><td><kbd>1</kbd> … <kbd>6</kbd></td><td>Ir a esa foto</td></tr>
+          <tr><td><kbd>F</kbd></td><td>Marcar o quitar como favorita</td></tr>
+          <tr><td><kbd>Ctrl</kbd> + <kbd>S</kbd> (<kbd>⌘</kbd> + <kbd>S</kbd> en Mac)</td><td>Guardar las favoritas</td></tr>
+          <tr><td><kbd>?</kbd></td><td>Mostrar esta ayuda</td></tr>
+          <tr><td><kbd>Esc</kbd></td><td>Cerrar la ayuda o salir de la nota</td></tr>
+        </tbody>
+      </table>
+      <form method="dialog">
+        <button>Cerrar</button>
+      </form>
+    </dialog>
+  </body>
+</html>

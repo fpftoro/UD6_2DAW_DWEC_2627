@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>E04 · Buscador con debounce</title>
+    <link rel="stylesheet" href="estilos.css" />
+    <script type="module" src="js/main.js"></script>
+  </head>
+  <body>
+    <div id="progreso" aria-hidden="true"></div>
+
+    <h1>Municipios de Andalucía</h1>
+
+    <form id="buscador" role="search">
+      <label for="buscar">Buscar municipio</label>
+      <input id="buscar" type="search" autocomplete="off" />
+      <label for="espera">Espera</label>
+      <select id="espera">
+        <option value="0">0 ms (sin rebote)</option>
+        <option value="150">150 ms</option>
+        <option value="300" selected>300 ms</option>
+        <option value="600">600 ms</option>
+      </select>
+    </form>
+
+    <p id="contadores">Eventos input: 0 · Búsquedas: 0</p>
+    <p id="total" role="status"></p>
+    <ul id="resultados"></ul>
+
+    <section id="articulo">
+      <h2>Desplázate hasta el final</h2>
+      <p id="contador-scroll">Eventos scroll: 0 · Actualizaciones de la barra: 0</p>
+      <p>Andalucía tiene ocho provincias y más de setecientos municipios. Este texto solo sirve para que la página sea larga y puedas desplazarte: mira la barra de arriba y los contadores mientras lo haces.</p>
+      <p>Cuando te desplazas, el navegador lanza el evento <code>scroll</code> muchas veces por segundo. Si cada vez hubiera que hacer un cálculo costoso, la página iría a saltos.</p>
+      <p>Con un <em>throttle</em>, la barra se actualiza como mucho una vez cada cien milisegundos, y aun así se ve fluida.</p>
+      <p>Sigue bajando.</p>
+      <p>Un poco más.</p>
+      <p>Ya casi.</p>
+      <p>Fin del texto: la barra debe estar al 100 %.</p>
+    </section>
+  </body>
+</html>

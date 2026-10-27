@@ -1,0 +1,40 @@
+body {
+  font-family: system-ui, sans-serif;
+  max-width: 640px;
+  margin: 1rem auto;
+  padding: 0 1rem;
+}
+
+#progreso {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 6px;
+  width: var(--progreso, 0%);
+  background: #1c7ed6;
+}
+
+#buscador {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#contadores,
+#contador-scroll {
+  font-family: Consolas, monospace;
+  color: #495057;
+}
+
+#resultados {
+  columns: 2;
+}
+
+#resultados .provincia {
+  color: #868e96;
+}
+
+#articulo p {
+  margin-bottom: 40vh;
+}

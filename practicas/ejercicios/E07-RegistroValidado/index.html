@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>E07 · Registro con validación</title>
+    <link rel="stylesheet" href="estilos.css" />
+    <script type="module" src="js/main.js"></script>
+  </head>
+  <body>
+    <h1>Crear una cuenta</h1>
+
+    <div id="resumen-errores" tabindex="-1" hidden>
+      <h2>Revisa estos campos</h2>
+      <ul></ul>
+    </div>
+
+    <form id="registro" novalidate>
+      <div class="campo">
+        <label for="usuario">Nombre de usuario</label>
+        <input id="usuario" name="usuario" required pattern="[a-z][a-z0-9_]{2,15}" autocomplete="username"
+          aria-describedby="usuario-ayuda usuario-error" />
+        <p class="ayuda" id="usuario-ayuda">De 3 a 16 caracteres: minúsculas, cifras o _, empezando por una letra.</p>
+        <p class="error" id="usuario-error"></p>
+      </div>
+
+      <div class="campo">
+        <label for="correo">Correo electrónico</label>
+        <input id="correo" name="correo" type="email" required autocomplete="email" aria-describedby="correo-error" />
+        <p class="error" id="correo-error"></p>
+      </div>
+
+      <div class="campo">
+        <label for="clave">Contraseña</label>
+        <input id="clave" name="clave" type="password" required minlength="8" autocomplete="new-password"
+          aria-describedby="clave-ayuda clave-error" />
+        <p class="ayuda" id="clave-ayuda">Al menos 8 caracteres, con una mayúscula y una cifra.</p>
+        <p class="error" id="clave-error"></p>
+      </div>
+
+      <div class="campo">
+        <label for="repetir">Repite la contraseña</label>
+        <input id="repetir" name="repetir" type="password" required autocomplete="new-password" aria-describedby="repetir-error" />
+        <p class="error" id="repetir-error"></p>
+      </div>
+
+      <div class="campo">
+        <label for="nacimiento">Fecha de nacimiento</label>
+        <input id="nacimiento" name="nacimiento" type="date" required aria-describedby="nacimiento-error" />
+        <p class="error" id="nacimiento-error"></p>
+      </div>
+
+      <div class="campo">
+        <label><input type="checkbox" id="condiciones" name="condiciones" required aria-describedby="condiciones-error" /> Acepto las condiciones de uso</label>
+        <p class="error" id="condiciones-error"></p>
+      </div>
+
+      <button>Crear la cuenta</button>
+    </form>
+
+    <p id="resultado" role="status"></p>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+body {
+  font-family: system-ui, sans-serif;
+  max-width: 720px;
+  margin: 1rem auto;
+  padding: 0 1rem;
+}
+
+#zona {
+  border: 3px dashed #adb5bd;
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  color: #495057;
+}
+
+#zona.encima {
+  border-color: #1c7ed6;
+  background: #e7f5ff;
+}
+
+#ficheros .rechazado {
+  color: #c92a2a;
+}
+
+#tablero {
+  position: relative;
+  height: 320px;
+  border-radius: 12px;
+  background: #f1f3f5;
+  overflow: hidden;
+}
+
+.nota {
+  position: absolute;
+  left: 0;
+  top: 0;
+  translate: var(--x, 0) var(--y, 0);
+  width: 140px;
+  padding: 0.75rem;
+  background: #fff3bf;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 0.15);
+  cursor: grab;
+  user-select: none;
+  touch-action: none; /* con el dedo, arrastrar la nota y no desplazar la página */
+}
+
+.nota:focus-visible {
+  outline: 3px solid #1c7ed6;
+}
+
+.nota.arrastrando {
+  cursor: grabbing;
+  box-shadow: 0 8px 16px rgb(0 0 0 / 0.25);
+}
+
+.ayuda {
+  color: #868e96;
+  font-size: 0.9rem;
+}

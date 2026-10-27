@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 470" width="900" height="470" role="img" aria-labelledby="t d">
+  <title id="t">Fases de la propagación de un evento</title>
+  <desc id="d">Un clic en un botón que está dentro de un formulario, dentro de body, html, document y window. La fase de captura baja desde window hasta el formulario; la fase de objetivo ocurre en el botón; la fase de burbuja sube desde el formulario hasta window.</desc>
+  <defs>
+    <marker id="flecha-azul" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#1c7ed6"/>
+    </marker>
+    <marker id="flecha-rosa" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#c2255c"/>
+    </marker>
+  </defs>
+  <rect width="900" height="470" fill="#ffffff"/>
+  <g font-family="'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+    <!-- Cajas anidadas -->
+    <g font-size="16" font-family="Consolas, 'Courier New', monospace">
+      <rect x="220" y="30" width="460" height="410" rx="14" fill="#f8f9fa" stroke="#adb5bd" stroke-width="2"/>
+      <text x="238" y="56" fill="#495057">window</text>
+      <rect x="245" y="70" width="410" height="355" rx="12" fill="#f1f3f5" stroke="#adb5bd" stroke-width="2"/>
+      <text x="263" y="96" fill="#495057">document</text>
+      <rect x="270" y="110" width="360" height="300" rx="12" fill="#e9ecef" stroke="#adb5bd" stroke-width="2"/>
+      <text x="288" y="136" fill="#495057">html</text>
+      <rect x="295" y="150" width="310" height="245" rx="12" fill="#e7f5ff" stroke="#74c0fc" stroke-width="2"/>
+      <text x="313" y="176" fill="#1864ab">body</text>
+      <rect x="320" y="190" width="260" height="190" rx="12" fill="#d0ebff" stroke="#4dabf7" stroke-width="2"/>
+      <text x="338" y="216" fill="#1864ab">form</text>
+      <rect x="370" y="300" width="160" height="56" rx="10" fill="#fff3bf" stroke="#f08c00" stroke-width="3"/>
+      <text x="450" y="334" fill="#e67700" font-weight="700" text-anchor="middle">button</text>
+    </g>
+
+    <!-- Captura -->
+    <path d="M410 18 V292" stroke="#1c7ed6" stroke-width="4" fill="none" marker-end="url(#flecha-azul)"/>
+    <!-- Burbuja -->
+    <path d="M490 292 V22" stroke="#c2255c" stroke-width="4" fill="none" marker-end="url(#flecha-rosa)"/>
+
+    <!-- Leyenda izquierda -->
+    <g font-size="17">
+      <text x="30" y="120" fill="#1c7ed6" font-weight="700">1. Captura</text>
+      <text x="30" y="145" fill="#343a40" font-size="15">Baja de window</text>
+      <text x="30" y="165" fill="#343a40" font-size="15">al padre del objetivo.</text>
+      <text x="30" y="185" fill="#343a40" font-size="15">Oyentes con</text>
+      <text x="30" y="205" fill="#1c7ed6" font-size="15" font-family="Consolas, monospace">capture: true</text>
+
+      <text x="30" y="300" fill="#e67700" font-weight="700">2. Objetivo</text>
+      <text x="30" y="325" fill="#343a40" font-size="15">El evento llega</text>
+      <text x="30" y="345" fill="#343a40" font-size="15">a evento.target.</text>
+    </g>
+    <!-- Leyenda derecha -->
+    <g font-size="17">
+      <text x="705" y="120" fill="#c2255c" font-weight="700">3. Burbuja</text>
+      <text x="705" y="145" fill="#343a40" font-size="15">Sube del padre</text>
+      <text x="705" y="165" fill="#343a40" font-size="15">del objetivo a window.</text>
+      <text x="705" y="185" fill="#343a40" font-size="15">Oyentes normales</text>
+      <text x="705" y="205" fill="#c2255c" font-size="15" font-family="Consolas, monospace">(por defecto)</text>
+
+      <text x="705" y="300" fill="#343a40" font-size="15">No suben: focus, blur,</text>
+      <text x="705" y="320" fill="#343a40" font-size="15">mouseenter, mouseleave.</text>
+    </g>
+  </g>
+</svg>

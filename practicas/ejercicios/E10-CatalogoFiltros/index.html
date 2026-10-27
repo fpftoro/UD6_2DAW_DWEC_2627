@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Catálogo de productos andaluces</title>
+    <link rel="stylesheet" href="estilos.css" />
+    <script type="module" src="js/main.js"></script>
+  </head>
+  <body>
+    <h1>Productos andaluces</h1>
+
+    <div class="disposicion">
+      <form id="filtros" role="search" aria-label="Filtros del catálogo">
+        <label for="texto">Buscar</label>
+        <input id="texto" name="q" type="search" autocomplete="off" />
+
+        <label for="categoria">Categoría</label>
+        <select id="categoria" name="categoria">
+          <option value="">Todas</option>
+          <option value="aceite">Aceite</option>
+          <option value="dulces">Dulces</option>
+          <option value="conservas">Conservas</option>
+          <option value="bebidas">Bebidas</option>
+        </select>
+
+        <label for="precio">Precio máximo</label>
+        <input id="precio" name="max" type="range" min="1" max="40" step="1" value="40" />
+        <output id="precio-valor" for="precio">Hasta 40 €</output>
+
+        <label><input type="checkbox" name="stock" value="1" /> Solo en stock</label>
+
+        <fieldset>
+          <legend>Etiquetas</legend>
+          <label><input type="checkbox" name="etiqueta" value="ecologico" /> Ecológico</label>
+          <label><input type="checkbox" name="etiqueta" value="sin-gluten" /> Sin gluten</label>
+          <label><input type="checkbox" name="etiqueta" value="vegano" /> Vegano</label>
+          <label><input type="checkbox" name="etiqueta" value="artesano" /> Artesano</label>
+        </fieldset>
+
+        <label for="orden">Ordenar por</label>
+        <select id="orden" name="orden">
+          <option value="relevancia">Relevancia</option>
+          <option value="precio-asc">Precio: de menor a mayor</option>
+          <option value="precio-desc">Precio: de mayor a menor</option>
+          <option value="nombre">Nombre</option>
+        </select>
+
+        <button type="reset">Quitar los filtros</button>
+      </form>
+
+      <main>
+        <p id="contador" role="status"></p>
+        <ul id="productos"></ul>
+        <p id="sin-resultados" hidden>
+          No hay productos que cumplan los filtros. Prueba a quitar alguno.
+        </p>
+      </main>
+    </div>
+
+    <template id="plantilla-producto">
+      <li class="producto">
+        <h2 class="nombre"></h2>
+        <p class="descripcion"></p>
+        <p class="detalles"><span class="precio"></span> · <span class="categoria"></span></p>
+        <ul class="etiquetas"></ul>
+      </li>
+    </template>
+  </body>
+</html>

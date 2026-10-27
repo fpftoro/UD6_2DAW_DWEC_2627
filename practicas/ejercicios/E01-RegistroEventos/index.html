@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>E01 · Registro de eventos</title>
+    <link rel="stylesheet" href="estilos.css" />
+    <script type="module" src="js/main.js"></script>
+  </head>
+  <body>
+    <h1>Registro de eventos</h1>
+
+    <section class="panel">
+      <h2>1. El recorrido de un clic</h2>
+      <p>Pulsa el botón, la estrella o el enlace y mira por qué elementos pasa el clic.</p>
+      <section id="zona" class="capa" data-nombre="section">
+        section
+        <div class="capa" data-nombre="div">
+          div
+          <button type="button" id="objetivo" class="capa" data-nombre="button">
+            Púlsame <span class="estrella">★</span>
+          </button>
+          <a id="enlace" href="https://developer.mozilla.org/es/docs/Web/API/Event">Un enlace a MDN</a>
+        </div>
+      </section>
+
+      <fieldset>
+        <legend>Opciones</legend>
+        <label><input type="checkbox" id="detener" /> Detener la propagación en el div</label>
+        <label><input type="checkbox" id="cancelar" /> Cancelar la acción por defecto en la section</label>
+      </fieldset>
+    </section>
+
+    <section class="panel">
+      <h2>2. Tres formas de asociar un manejador</h2>
+      <!-- El atributo onclick está aquí SOLO para estudiarlo: no lo copies en tus páginas -->
+      <button type="button" id="tres-formas" onclick="this.textContent = 'Lo ha cambiado el atributo'">
+        Pulsa antes de programar nada
+      </button>
+    </section>
+
+    <section class="panel">
+      <h2>Registro</h2>
+      <button type="button" id="limpiar">Limpiar el registro</button>
+      <ol id="registro" aria-live="polite"></ol>
+    </section>
+  </body>
+</html>
